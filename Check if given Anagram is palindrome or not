@@ -1,0 +1,18 @@
+const isPalindromeOfAnagram=str=>{
+    let a={};
+    for(let i=0;i< str.length;i++){
+      if((str [i]) in a){
+          a[str[i]]++;
+      }
+      else{
+          a[str[i]]=1;
+      }
+    }
+    let c=0;
+    let val=Object.values(a);
+    for(let v in val){
+        if(v%2==1)
+        c++;
+    }
+   return c>1 ? true : false; 
+}
