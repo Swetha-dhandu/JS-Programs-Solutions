@@ -1,0 +1,4 @@
+let str="12344";
+let strOfNum= (!isNaN(str)) ? true : false  //using isNaN()
+let strOfNum= (Number(str)) ? true : false  //using Number()
+console.log(strOfNum);
