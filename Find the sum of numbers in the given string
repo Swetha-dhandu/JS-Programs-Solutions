@@ -1,0 +1,17 @@
+const getSum=str=>{
+    let temp="0";
+    let sum=0;
+    for(let i=0;i<str.length;i++){
+        let ch=str[i]
+        if(!isNaN(String(ch))){
+            temp+=ch
+        }
+        else{
+            sum+=parseInt(temp)
+            temp="0"
+        }
+    }
+    sum+=parseInt(temp);
+    return sum;
+}
+console.log(getSum("1ab12"))       //Output: 13
