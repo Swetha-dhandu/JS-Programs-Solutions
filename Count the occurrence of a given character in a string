@@ -1,0 +1,13 @@
+const getCount = (str,ch) => {
+    let charObj={};
+    str=str.toLowerCase().split('');
+    for(let c of str){
+        if(charObj.hasOwnProperty(c))
+        charObj[c]++;
+        else
+        charObj[c]=1;
+    }
+        
+    return Number(charObj[ch]) ? charObj[ch] : 0;
+}
+console.log(getCount("abcdAd",'a'));
