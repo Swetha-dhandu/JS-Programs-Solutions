@@ -1,0 +1,12 @@
+let marks = [12, 25, 31, 23, 75, 81, 100], temp;
+//  marks.sort((a,b)=>a-b)  /*Sorting the given array using Array.sort() method */
+for(let i=0;i<marks.length;i++){
+    for(let j=0;j<marks.length;j++){
+        if(marks[j]>marks[j+1]){
+            temp=marks[j+1];
+            marks[j+1]=marks[j];
+            marks[j]=temp;
+        }
+    }
+}
+console.log(marks);
