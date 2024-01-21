@@ -1,0 +1,30 @@
+function longestCommonPrefix(strs) {
+    if (!strs || strs.length === 0) {
+        return "";
+    }
+
+    // Sort the array to ensure that the strings are in lexicographical order
+    strs.sort();
+    // Take the first and last strings in the sorted array
+    const firstStr = strs[0];
+    const lastStr = strs[strs.length - 1];
+
+    // Find the common prefix between the first and last strings
+    let i = 0;
+    while (i < firstStr.length && firstStr.charAt(i) === lastStr.charAt(i)) {
+        i++;
+    }
+
+    return firstStr.substring(0, i);
+}
+
+// Example usage
+const inputList = [
+    ["babel", "baxxxx", "baeeee"],
+    ["sabel", "saxxxx"]
+];
+
+for (const input of inputList) {
+    const result = longestCommonPrefix(input);
+    console.log(`Longest common prefix for [${input.join(", ")}]: ${result}`);
+}
