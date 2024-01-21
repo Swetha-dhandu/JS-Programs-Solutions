@@ -1,0 +1,26 @@
+
+const items = ["apples", "bananas", "chips", "dates", "eggs"];
+const combinations = []; //Array to store output combinations
+
+function generateCombinations(arr, size, start, temp) {
+  if (temp.length === size) {
+    combinations.push([...temp]);
+    return;
+  }
+
+  for (let i = start; i < arr.length; i++) {
+    temp.push(arr[i]);
+    generateCombinations(arr, size, i + 1, temp);
+    temp.pop();
+  }
+}
+
+// Calling function to get all the sizes of given array
+for (let i = 1; i <= items.length; i++) {
+  generateCombinations(items, i, 0, []);
+}
+
+combinations.forEach((x) => {
+    console.log(x);
+});
+           
