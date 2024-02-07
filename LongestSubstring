@@ -1,0 +1,35 @@
+var LongestSubstring = function (s) {
+    // Initialise a set to store the longest string in
+    let longestStringLength = 0;
+let opt=[];
+    // Loop through the provided string
+    for (let i = 0; i < s.length; i++) {
+        // Initialise a set to store the string created from the current point
+        let currentStringSet = [];
+
+        // Loop through the letters from the current point
+        for (let x = i; x < s.length; x++) {
+            // Check if the current letter exists in the current Set
+            if (currentStringSet.indexOf(s[x])!=-1) {
+                // Move on from the current letter without adding it (as it already exists in the set)
+                break;
+            } else {
+                // Character not found, add it to the set
+                currentStringSet.push(s[x]);
+            }
+        }
+
+        // Update the longest string length (if this one was bigger)
+        let str=currentStringSet.join('');
+        opt.push(str);
+        longestStringLength = Math.max(
+            longestStringLength,
+            currentStringSet.length
+        );
+    }
+   opt= opt.sort((a,b)=>b.length-a.length);
+opt=opt.filter(i=>i.length==opt[0].length)
+console.log(opt)
+    return longestStringLength;
+};
+console.log(LongestSubstring("geeksforgeeks"))
