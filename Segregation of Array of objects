@@ -1,0 +1,32 @@
+let myItem = [
+    {id:1,name:"a"},
+    {id:2,name:"b"},
+    {id:3,name:"c"},
+    {id:1,name:"d"},
+    {id:3,name:"e"}
+];
+
+// This obj will maintain the data like this: { '1': ['a', 'c'], '2': ['b']...}
+const newObj = {}
+myItem.forEach(item => {
+    if(newObj.hasOwnProperty(item.id)) {
+        newObj[item.id].push(item.name);
+    } else {
+      newObj[item.id] = [item.name];  
+    }
+});
+
+// Final array for keeping the desired objects
+const newArr = [];
+for(const [key, value] of Object.entries(newObj)) {
+    const obj = { 
+        // key comes as a string here, so conversion
+        id: parseInt(key), 
+        // Since we don't want to store one item in array
+        name: value.length > 1 ? value : value[0] 
+    };
+    
+    newArr.push(obj);
+}
+
+console.log(newArr); // Output -> [{ id: 1, name: [ 'a', 'd' ] }, { id: 2, name: 'b' }, { id: 3, name: [ 'c', 'e' ] }]
