@@ -2,4 +2,4 @@ let str="aaabcrtgfgss";
 let charArr=Array.from(str);
 let duplicateChars=charArr.filter((char,i)=>charArr.indexOf(char)!=i);
 duplicateChars=[...new Set(duplicateChars)]; //if duplicates for each character are more than one
-console.log(d);
+console.log(duplicateChars);
