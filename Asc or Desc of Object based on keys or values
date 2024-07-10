@@ -1,0 +1,15 @@
+Return the languages in descending order of their score
+
+const obj = {hindi:60, english:50, marathi:90, kannada:82};
+let arr=Object.entries(obj).sort((a,b)=>b[1]-a[1])  //[ [ 'marathi', 90 ], [ 'kannada', 82 ],  [ 'hindi', 60 ],  [ 'english', 50 ] ]
+arr = Object.fromEntries(arr);  // { marathi: 90, kannada: 82, hindi: 60, english: 50 }  
+arr=Object.keys(arr)    //[ 'marathi', 'kannada', 'hindi', 'english' ]
+console.log(arr);
+
+or
+
+let arr=Object.entries(obj).sort((a,b)=>b[1]-a[1])  //[ [ 'marathi', 90 ], [ 'kannada', 82 ],  [ 'hindi', 60 ],  [ 'english', 50 ] ]
+let opt=[]
+arr.forEach(x=>{
+    opt.push(x[0])
+})            //[ 'marathi', 'kannada', 'hindi', 'english' ]
